@@ -7,6 +7,8 @@
 	 */
 	namespace App\Helpers;
 	
+	use Illuminate\Support\Str;
+	
 	if (!function_exists('humpToUnderLine')) {
 		/**
 		 * Returns a human readable file size
@@ -40,4 +42,41 @@
 			return $out;
 		}
 		
+	}
+	
+	if (!function_exists('getFinalSql')){
+		
+		function getFinalSql($query)
+		{
+			$sql_str = $query->toSql();
+			$bindings = $query->getBindings();
+			$wrapped_str = str_replace('?', "'?'", $sql_str);
+			return Str::replaceArray('?', $bindings, $wrapped_str);
+		}
+	}
+	
+	if(!function_exists('transformNumberUnit')){
+		
+		function transformNumberUnit($numberUnitStr){
+			switch($numberUnitStr){
+				case 'k':
+					$numberUnitStr = pow(10,3);
+					break;
+				case 'M':
+					$numberUnitStr = pow(10,6);
+					break;
+				case 'G':
+					$numberUnitStr = pow(10,9);
+					break;
+				case 'Ｔ':
+					$numberUnitStr = pow(10,12);
+					break;
+				case 'Ｐ':
+					$numberUnitStr = pow(10,15);
+					break;
+				default:
+					$numberUnitStr = 10;
+			}
+			return $numberUnitStr;
+		}
 	}
