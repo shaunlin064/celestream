@@ -16,8 +16,7 @@ class CreateKolSocialMediaTable extends Migration
         Schema::create('kol_social_media', function (Blueprint $table) {
             $table->id();
 	        $table->unsignedInteger('kol_id');
-	        $table->char('kolSocialMediaable_type',255)->comment('多態關聯 model name');
-	        $table->unsignedInteger('kolSocialMediaable_id')->comment('多態關聯 id');
+	        $table->char('social_media_name',100)->comment('社交平台名稱');
 	        $table->text('social_media_url')->comment('社交平台url');
 	        $table->text('image_url')->comment('社交平台圖片url');
             $table->timestamps();

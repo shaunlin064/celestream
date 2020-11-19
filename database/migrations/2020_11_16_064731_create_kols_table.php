@@ -16,8 +16,9 @@ class CreateKolsTable extends Migration
         Schema::create('kols', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('third_party_id')->unique()->comment('第三方來源id');
-	        $table->text('introduction')->comment('kol自我簡介');
 	        $table->char('name',255)->comment('名稱');
+	        $table->text('introduction')->comment('kol自我簡介');
+	        $table->unsignedTinyInteger('created_at_mark')->nullable()->comment('最近一次完成更新資料日期 每週一為一個階段');
             $table->timestamps();
         });
     }

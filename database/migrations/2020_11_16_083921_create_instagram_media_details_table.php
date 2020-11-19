@@ -13,11 +13,11 @@ class CreateInstagramMediaDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('instagram_media_details', function (Blueprint $table) {
+        Schema::create('kol_social_media_instagram_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('tracks_count')->comment('追蹤數');
 	        $table->unsignedFloat('avg_likes_count')->comment('平均按讚');
-	        $table->unsignedFloat('avg_comment_count')->comment('平均留言');
+	        $table->unsignedFloat('avg_comments_count')->comment('平均留言');
 	        $table->unsignedFloat('avg_interaction_count')->comment('平均互動');
 	        $table->unsignedFloat('avg_interaction_rate')->comment('互動率');
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateInstagramMediaDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('instagram_media_details');
+        Schema::dropIfExists('kol_social_media_instagram_details');
     }
 }

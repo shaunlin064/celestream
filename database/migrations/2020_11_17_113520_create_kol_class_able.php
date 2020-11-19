@@ -14,10 +14,10 @@ class CreateKolClassable extends Migration
     public function up()
     {
         //
-	    Schema::create('kolclassables', function (Blueprint $table) {
+	    Schema::create('kol_class_ables', function (Blueprint $table) {
 		    $table->unsignedInteger('kol_id');
-		    $table->char('kolclassable_type',255)->comment('多態關聯 model name');
-		    $table->unsignedInteger('kolclassable_id')->comment('多態關聯 id');
+		    $table->char('kol_class_ables_type',255)->comment('多態關聯 model name');
+		    $table->unsignedInteger('kol_class_ables_id')->comment('多態關聯 id');
 	    });
     }
 
@@ -29,6 +29,6 @@ class CreateKolClassable extends Migration
     public function down()
     {
         //
-	    Schema::dropIfExists('kolclassables');
+	    Schema::dropIfExists('kol_class_ables');
     }
 }

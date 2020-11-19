@@ -13,11 +13,11 @@ class CreateFacebookMediaDetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('facebook_media_details', function (Blueprint $table) {
+        Schema::create('kol_social_media_facebook_details', function (Blueprint $table) {
             $table->id();
 	        $table->unsignedInteger('fans_count')->comment('粉絲數');
 	        $table->unsignedFloat('avg_likes_count')->comment('平均按讚');
-	        $table->unsignedFloat('avg_comment_count')->comment('平均留言');
+	        $table->unsignedFloat('avg_comments_count')->comment('平均留言');
 	        $table->unsignedFloat('avg_shares_count')->comment('平均分享');
 	        $table->unsignedFloat('avg_interaction_rate')->comment('互動率');
 	        $table->unsignedFloat('affinity_category_rate')->comment('貼文注目率');
@@ -35,6 +35,6 @@ class CreateFacebookMediaDetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facebook_media_details');
+        Schema::dropIfExists('kol_social_media_facebook_details');
     }
 }
