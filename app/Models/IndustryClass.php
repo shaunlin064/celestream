@@ -12,7 +12,7 @@ class IndustryClass extends Model
 	protected $fillable = ['name'];
 	
 	public function kolClass (  ) {
-		return $this->morphToMany('App\Models\Kol', 'kolclassable');
+		return $this->morphToMany('App\Models\Kol', 'kol_class_ables');
 	}
 	
 }
